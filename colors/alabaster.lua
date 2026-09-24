@@ -449,7 +449,7 @@ else
 	local diffadd = "#284918"
 	local diffdelete = "#B40600"
 	local diffchange = "#ec8013"
-	local statusline = "#c9c9c9"
+	local statusline = "#dcdcdc"
 	local comment = "#aa3731"
 	local dim_comment = "#696969"
 	local mistake = {
@@ -740,6 +740,10 @@ else
 		StatuslineGreen = { fg = ansi.green, bg = statusline },
 		StatuslineCyan = { fg = ansi.cyan, bg = statusline },
 		StatuslineMagenta = { fg = ansi.magenta, bg = statusline },
+		MiniStatuslineFilename = { fg = fg, bg = statusline },
+		MiniStatuslineModeInsert = { bg = "#4caf50", fg = "#ffffff" },
+		MiniStatuslineModeCommand = { bg = "#8b2e2e", fg = "#ffffff" },
+		MiniStatuslineInactive = { fg = "#6b6b6b", bg = statusline },
 		--- ALE
 		ALEWarningSign = { fg = warn },
 		--- vim-matchup
