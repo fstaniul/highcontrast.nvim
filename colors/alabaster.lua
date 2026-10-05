@@ -31,7 +31,10 @@ local bg = "#f7f7f7"
 local fg = "#000000"
 local punct_fg = "#777777"
 local def_fg = "#325cc0"
-local const_fg = "#7a3e9d"
+local pdef_fg = "#9538bb" -- pointer
+local gdef_fg = "#005b7f"
+local gdef_bg = "#d6f1ff"
+local const_fg = "#ba651b"
 local active = "#ffbc5d"
 local active_blue = "#007acc"
 local string_fg = "#448c27"
@@ -249,7 +252,7 @@ theme = {
 	["@error"] = { bg = mistake.bg, fg = mistake.fg },
 	["@exception"] = { fg = ansi.black },
 	["@field"] = { fg = ansi.black },
-	["@function"] = { fg = ansi.black },
+	["@function"] = {},
 	["@function.builtin"] = { fg = ansi.black },
 	["@function.macro"] = { fg = ansi.black },
 	["@keyword"] = { fg = ansi.black },
@@ -273,7 +276,7 @@ theme = {
 	["@symbol"] = {},
 	["@type"] = { fg = ansi.black },
 	["@type.builtin"] = { fg = ansi.black },
-	["@variable"] = { fg = ansi.black },
+	["@variable"] = {},
 	["@variable.builtin"] = { fg = ansi.black },
 	["@tag"] = { fg = ansi.black },
 	["@tag.delimiter"] = { fg = punct_fg },
@@ -283,7 +286,8 @@ theme = {
 
 	--- Theme specific
 	["@AlabasterConstant"] = { fg = const_fg },
-	["@AlabasterDefinition"] = { fg = def_fg },
+	["@AlabasterDefinition"] = { fg = gdef_fg, bg = gdef_bg },
+	["@AlabasterLocalDefinition"] = { fg = def_fg },
 	["@AlabasterPunct"] = { fg = punct_fg },
 	["@AlabasterString"] = { fg = string_fg },
 	["@AlabasterHashbang"] = { fg = dim_comment },
@@ -394,14 +398,17 @@ theme = {
 	["@lsp.mod.declaration"] = { fg = fg },
 	["@lsp.type.enumMember"] = { fg = fg },
 	["@lsp.type.function"] = { fg = fg },
-	["@lsp.type.method"] = { fg = fg },
 	["@lsp.type.selfKeyword"] = { fg = fg },
-	["@lsp.typemod.class.declaration"] = { fg = def_fg },
+	["@lsp.typemod.class.declaration"] = { fg = gdef_fg, bg = gdef_bg },
 	["@lsp.typemod.class.definition"] = { fg = def_fg },
 	["@lsp.typemod.enum.declaration"] = { fg = def_fg },
 	["@lsp.typemod.enumMember.defaultLibrary"] = { fg = fg },
-	["@lsp.typemod.function.declaration"] = { fg = def_fg },
-	["@lsp.typemod.function.definition"] = { fg = def_fg },
+	["@lsp.typemod.function.declaration"] = { link = "@AlabasterLocalDefinition" },
+	["@lsp.typemod.function.definition"] = { link = "@AlabasterDefinition" },
+	["@lsp.typemod.variable.static"] = { link = "@AlabasterDefinition" },
+	["@lsp.typemod.parameter.definition"] = { link = "@AlabasterLocalDefinition" },
+	["@lsp.typemod.variable.readonly"] = { fg = const_fg },
+	["@lsp.typemod.variable.pointer"] = { fg = pdef_fg },
 	["@lsp.typemod.macro.declaration"] = { fg = def_fg },
 	["@lsp.typemod.method.declaration"] = { fg = def_fg },
 	["@lsp.typemod.selfKeyword"] = { fg = fg },

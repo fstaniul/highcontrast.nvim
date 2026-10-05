@@ -6,13 +6,19 @@
 
 (const_declaration
   (const_spec
-    name: (identifier) @AlabasterDefinition))
+    name: (identifier) @AlabasterConstant))
 
 (function_declaration
   name: (identifier) @AlabasterDefinition)
 
 (method_declaration
   name: (field_identifier) @AlabasterDefinition)
+
+(type_spec
+  name: (type_identifier) @AlabasterDefinition)
+
+(type_alias
+  name: (type_identifier) @AlabasterDefinition)
 
 ;; Local Definitions
 ;; 1. Standard var declarations (e.g., var x int)
